@@ -11,41 +11,55 @@
       padding: 0;
       font-family: 'Source Sans Pro', sans-serif;
       color: #fff;
-      height: 100%;
+      min-height: 100%;
       background: url('background.jpg') no-repeat center top;
       background-size: 100% auto;
       background-attachment: scroll;
       background-repeat: no-repeat;
     }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .logo-float {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 10rem;
+      z-index: 1000;
+      transition: top 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .logo-float {
+        height: 15rem;
+      }
+    }
+
     .overlay {
       background: rgba(0, 0, 0, 0.55);
+      padding: 250px 20px 100px 20px;
       min-height: 200vh;
-      width: 100%;
-      padding: 80px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
     }
-    .logo-img {
-      width: auto;
-      height: 20rem;
-      margin-bottom: 40px;
-    }
-    @media (min-width: 768px) {
-      .logo-img {
-        height: 24rem;
-      }
-    }
+
     .blurb {
       font-size: 20px;
       max-width: 480px;
       margin-bottom: 30px;
       text-align: center;
+      margin-top: 20rem;
     }
+
     .buttons {
       margin-top: 10px;
     }
+
     .button {
       font-family: 'Montserrat', sans-serif;
       background-color: #FCB795CC;
@@ -60,15 +74,18 @@
       display: inline-block;
       transition: background-color 0.3s ease;
     }
+
     .button:hover {
       background-color: #FCB795E8;
     }
+
     .socials {
       margin-top: 50px;
       display: flex;
       justify-content: center;
       gap: 25px;
     }
+
     .socials img {
       width: 32px;
       height: 32px;
@@ -77,8 +94,8 @@
   </style>
 </head>
 <body>
+  <img src="logo.jpg" alt="GlowRated Logo" class="logo-float" id="floatingLogo" />
   <div class="overlay">
-    <img src="logo.jpg" alt="GlowRated Logo" class="logo-img" />
     <div class="blurb">
       We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
     </div>
@@ -92,5 +109,17 @@
       <a href="mailto:danielaahernani@gmail.com"><img src="email.jpg" alt="Email"/></a>
     </div>
   </div>
+
+  <script>
+    // Smooth floating logo effect
+    const logo = document.getElementById('floatingLogo');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const newTop = 40 + scrollY * 0.1; // slight movement delay
+      logo.style.top = `${newTop}px`;
+    });
+  </script>
 </body>
 </html>
