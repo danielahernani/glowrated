@@ -22,38 +22,35 @@
       overflow-x: hidden;
     }
 
-    .logo-float {
+    .floating-group {
       position: fixed;
-      top: 40px;
+      top: 80px;
       left: 50%;
       transform: translateX(-50%);
-      height: 10rem;
       z-index: 1000;
-      transition: top 0.3s ease;
-    }
-
-    @media (min-width: 768px) {
-      .logo-float {
-        height: 15rem;
-      }
-    }
-
-    .overlay {
-      background: rgba(0, 0, 0, 0.55);
-      padding: 250px 20px 100px 20px;
-      min-height: 200vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      text-align: center;
+      transition: top 0.3s ease;
+    }
+
+    .logo-img {
+      width: auto;
+      height: 24rem;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .logo-img {
+        height: 28rem;
+      }
     }
 
     .blurb {
       font-size: 20px;
-      max-width: 480px;
+      max-width: 500px;
       margin-bottom: 30px;
-      text-align: center;
-      margin-top: 20rem;
     }
 
     .buttons {
@@ -91,11 +88,15 @@
       height: 32px;
       cursor: pointer;
     }
+
+    .spacer {
+      height: 200vh;
+    }
   </style>
 </head>
 <body>
-  <img src="logo.jpg" alt="GlowRated Logo" class="logo-float" id="floatingLogo" />
-  <div class="overlay">
+  <div class="floating-group" id="floatingGroup">
+    <img src="logo.jpg" alt="GlowRated Logo" class="logo-img" />
     <div class="blurb">
       We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
     </div>
@@ -110,15 +111,14 @@
     </div>
   </div>
 
-  <script>
-    // Smooth floating logo effect
-    const logo = document.getElementById('floatingLogo');
-    let lastScrollY = window.scrollY;
+  <div class="spacer"></div>
 
+  <script>
+    const group = document.getElementById('floatingGroup');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const newTop = 40 + scrollY * 0.1; // slight movement delay
-      logo.style.top = `${newTop}px`;
+      const newTop = 80 + scrollY * 0.1;
+      group.style.top = `${newTop}px`;
     });
   </script>
 </body>
