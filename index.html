@@ -12,9 +12,8 @@
       font-family: 'Source Sans Pro', sans-serif;
       color: #fff;
       height: 100%;
-      background: url('background.jpg') no-repeat center center;
+      background: url('background.jpg') no-repeat center top fixed;
       background-size: cover;
-      background-attachment: scroll;
       overflow-x: hidden;
     }
 
@@ -41,6 +40,8 @@
       padding: 20px;
       opacity: 0;
       animation: fadeIn 1.5s ease-out forwards;
+      width: 90%;
+      max-width: 600px;
     }
 
     @keyframes fadeIn {
@@ -51,20 +52,21 @@
 
     .logo-img {
       width: auto;
-      height: 24rem;
+      height: 16rem;
       margin-bottom: 5px;
     }
 
     @media (min-width: 768px) {
       .logo-img {
-        height: 28rem;
+        height: 18rem;
       }
     }
 
     .blurb {
-      font-size: 20px;
+      font-size: 18px;
       max-width: 500px;
       margin-bottom: 30px;
+      line-height: 1.4;
     }
 
     .buttons {
@@ -102,34 +104,6 @@
       height: 32px;
       cursor: pointer;
     }
-
-    .spacer {
-      height: 200vh;
-    }
-
-    .scroll-cue {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      animation: bounce 2s infinite;
-    }
-
-    .scroll-cue img {
-      width: 30px;
-      height: 30px;
-      opacity: 0.7;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(8px);
-      }
-    }
   </style>
 </head>
 <body>
@@ -150,12 +124,6 @@
       <a href="mailto:danielaahernani@gmail.com"><img src="email.jpg" alt="Email"/></a>
     </div>
   </div>
-
-  <div class="scroll-cue">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Down_Arrow_Icon.svg" alt="Scroll Down"/>
-  </div>
-
-  <div class="spacer"></div>
 
   <script>
     const group = document.getElementById('floatingGroup');
