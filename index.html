@@ -27,12 +27,20 @@
       z-index: 0;
     }
 
+    .content-wrapper {
+      position: relative;
+      height: 140vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
     .floating-group {
-      position: fixed;
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -109,28 +117,29 @@
 <body>
   <div class="background-overlay"></div>
 
-  <div class="floating-group" id="floatingGroup">
-    <img src="logo.png" alt="GlowRated Logo" class="logo-img" />
-    <div class="blurb">
-      We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
-    </div>
-    <div class="buttons">
-      <a href="https://forms.gle/MVV5VaTHkB1DyKiN7" target="_blank" class="button">Join Waitlist</a>
-      <a href="https://forms.gle/m2ZtuSTHMPMrHci1A" target="_blank" class="button">Share a Fave</a>
-    </div>
-    <div class="socials">
-      <a href="https://www.instagram.com/glowrated?igsh=a3l3djV0eTQ2d3g0&utm_source=qr" target="_blank"><img src="instagram.jpg" alt="Instagram"/></a>
-      <a href="https://www.tiktok.com/@glowratedapp?_t=ZT-8wh7LR86vJ0&_r=1" target="_blank"><img src="tiktok.jpg" alt="TikTok"/></a>
-      <a href="mailto:danielaahernani@gmail.com"><img src="email.jpg" alt="Email"/></a>
+  <div class="content-wrapper">
+    <div class="floating-group" id="floatingGroup">
+      <img src="logo.png" alt="GlowRated Logo" class="logo-img" />
+      <div class="blurb">
+        We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
+      </div>
+      <div class="buttons">
+        <a href="https://forms.gle/MVV5VaTHkB1DyKiN7" target="_blank" class="button">Join Waitlist</a>
+        <a href="https://forms.gle/m2ZtuSTHMPMrHci1A" target="_blank" class="button">Share a Fave</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/glowrated?igsh=a3l3djV0eTQ2d3g0&utm_source=qr" target="_blank"><img src="instagram.jpg" alt="Instagram"/></a>
+        <a href="https://www.tiktok.com/@glowratedapp?_t=ZT-8wh7LR86vJ0&_r=1" target="_blank"><img src="tiktok.jpg" alt="TikTok"/></a>
+        <a href="mailto:danielaahernani@gmail.com"><img src="email.jpg" alt="Email"/></a>
+      </div>
     </div>
   </div>
 
   <script>
-    const group = document.getElementById('floatingGroup');
+    const floatingGroup = document.getElementById('floatingGroup');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const newTop = window.innerHeight / 2 + scrollY * 0.1;
-      group.style.top = `${newTop}px`;
+      floatingGroup.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.1}px))`;
     });
   </script>
 </body>
