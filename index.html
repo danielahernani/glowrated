@@ -4,46 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GlowRated – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;
       color: #fff;
-      text-align: center;
-      background: url('background.jpg') no-repeat center center fixed;
+      height: 100%;
+      background: url('background.jpg') repeat-y center center;
       background-size: cover;
     }
     .overlay {
       background: rgba(0, 0, 0, 0.55);
-      padding: 60px 20px;
-      min-height: 100vh;
+      height: 100vh;
+      width: 100%;
+      padding: 80px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: flex-start;
     }
     .logo-img {
-      width: 160px;
+      width: auto;
+      height: 2.875rem;
       margin-bottom: 30px;
+    }
+    @media (min-width: 768px) {
+      .logo-img {
+        height: 4rem;
+      }
     }
     .blurb {
       font-size: 20px;
       max-width: 480px;
-      margin-bottom: 20px;
-    }
-    .email-input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      text-align: center;
     }
     .buttons {
       margin-top: 10px;
     }
     .button {
-      background-color: #ff90b3;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FCB795CC;
       color: white;
       padding: 12px 24px;
       margin: 10px;
@@ -53,9 +60,13 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #FCB795E8;
     }
     .socials {
-      margin-top: 40px;
+      margin-top: 50px;
       display: flex;
       justify-content: center;
       gap: 25px;
@@ -71,9 +82,8 @@
   <div class="overlay">
     <img src="logo.jpg" alt="GlowRated Logo" class="logo-img" />
     <div class="blurb">
-      We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — drop your email and help us glow up!
+      We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
     </div>
-    <input class="email-input" type="email" placeholder="Enter your email" />
     <div class="buttons">
       <a href="https://forms.gle/MVV5VaTHkB1DyKiN7" target="_blank" class="button">Join Waitlist</a>
       <a href="https://forms.gle/m2ZtuSTHMPMrHci1A" target="_blank" class="button">Share a Fave</a>
