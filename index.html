@@ -2,71 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlowRated</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GlowRated – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: #111;
-      font-family: 'Montserrat', sans-serif;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #fff;
+      height: 100%;
+      background: url('background.jpg') no-repeat center top;
+      background-size: cover;
+      overflow-x: hidden;
     }
-    .bg {
+
+    .background-overlay {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
       top: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65));
+      z-index: 0;
     }
-    .glow {
-      font-size: 6rem;
-      text-align: center;
-      color: white;
-      margin-top: 20vh;
-      font-weight: 800;
-    }
+
     .floating-group {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+      width: 90%;
+      max-width: 600px;
     }
-    .floating-group a {
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #111;
-      padding: 10px 15px;
-      border-radius: 30px;
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .logo-img {
+      width: auto;
+      height: 16rem; /* reduced from 24rem (~2/3 size) */
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .logo-img {
+        height: 18rem;
+      }
+    }
+
+    .blurb {
+      font-size: 18px;
+      max-width: 500px;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FCB795CC;
+      color: white;
+      padding: 12px 24px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
       transition: background-color 0.3s ease;
     }
-    .floating-group a:hover {
-      background-color: white;
+
+    .button:hover {
+      background-color: #FCB795E8;
+    }
+
+    .socials {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .socials img {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .spacer {
+      height: 200vh;
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="bg">
-    <source src="glow.mp4" type="video/mp4" />
-  </video>
+  <div class="background-overlay"></div>
 
-  <div class="glow">GlowRated</div>
-
-  <div class="floating-group">
-    <a href="#map">Explore Map</a>
-    <a href="#">Submit Spot</a>
+  <div class="floating-group" id="floatingGroup">
+    <img src="logo.png" alt="GlowRated Logo" class="logo-img" />
+    <div class="blurb">
+      We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
+    </div>
+    <div class="buttons">
+      <a href="https://forms.gle/MVV5VaTHkB1DyKiN7" target="_blank" class="button">Join Waitlist</a>
+      <a href="https://forms.gle/m2ZtuSTHMPMrHci1A" target="_blank" class="button">Share a Fave</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/glowrated?igsh=a3l3djV0eTQ2d3g0&utm_source=qr" target="_blank"><img src="instagram.png" alt="Instagram"/></a>
+      <a href="https://www.tiktok.com/@glowratedapp?_t=ZT-8wh7LR86vJ0&_r=1" target="_blank"><img src="tiktok.png" alt="TikTok"/></a>
+      <a href="mailto:danielaahernani@gmail.com"><img src="email.png" alt="Email"/></a>
+    </div>
   </div>
-
-  <!-- Embed Map Section -->
-  <div id="map" style="margin-top: 60vh; padding: 40px 20px; background-color: #fff; border-radius: 20px;">
-    <h2 style="text-align: center; color: #111; font-size: 2rem;">✨ Discover Local Beauty Gems</h2>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1VGWucmyxt-zHyDG7NCvZkwRuypKxjTE&ehbc=2E312F"
-            width="100%" height="600" style="border:0; margin-top: 20px; border-radius: 12px;"></iframe>
-  </div>
-
 </body>
 </html>
