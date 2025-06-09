@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   <title>GlowRated – Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -15,9 +15,10 @@
       padding: 0;
       font-family: 'Source Sans Pro', sans-serif;
       color: #fff;
-      background: url('background.jpg') no-repeat center center fixed;
+      background: url('background.jpg') no-repeat center top fixed;
       background-size: cover;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
     }
 
     .background-overlay {
@@ -37,7 +38,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 60px 20px 80px;
+      padding: 60px 20px 40px;
       width: 100%;
       max-width: 700px;
       margin: 0 auto;
@@ -49,10 +50,135 @@
       margin-bottom: 30px;
     }
 
-    @media (min-width: 768px) {
-      .logo-img {
-        height: 18rem;
+    .blurb {
+      font-size: 18px;
+      max-width: 500px;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FCB795CC;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #FCB795E8;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .socials img {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .map-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .map-frame {
+      width: 100%;
+      max-width: 600px;
+      height: 500px;
+      border: none;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 60px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.2s; }
+    .fade-in-delay-2 { animation-delay: 0.4s; }
+    .fade-in-delay-3 { animation-delay: 0.6s; }
+    .fade-in-delay-4 { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile styles */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #fff;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65));
+      z-index: 0;
+    }
+
+    .floating-group {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 80px;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .logo-img {
+      width: auto;
+      height: 16rem;
+      margin-bottom: 30px;
     }
 
     .blurb {
@@ -118,7 +244,7 @@
       border: none;
       border-radius: 12px;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 40px;
     }
 
     .fade-in {
@@ -126,38 +252,26 @@
       animation: fadeIn 1s forwards;
     }
 
-    .fade-in-delay-1 {
-      animation-delay: 0.2s;
-    }
-
-    .fade-in-delay-2 {
-      animation-delay: 0.4s;
-    }
-
-    .fade-in-delay-3 {
-      animation-delay: 0.6s;
-    }
-
-    .fade-in-delay-4 {
-      animation-delay: 0.8s;
-    }
+    .fade-in-delay-1 { animation-delay: 0.2s; }
+    .fade-in-delay-2 { animation-delay: 0.4s; }
+    .fade-in-delay-3 { animation-delay: 0.6s; }
+    .fade-in-delay-4 { animation-delay: 0.8s; }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* 📱 Mobile Fixes */
     @media (max-width: 768px) {
+      body {
+        padding: 0;
+        justify-content: center;
+      }
+
       .floating-group {
-        padding: 20px 10px;
-        max-width: 100%;
-        margin: 0;
+        padding: 30px 10px 60px;
+        max-width: 95%;
       }
 
       .logo-img {
@@ -174,14 +288,14 @@
 
       .buttons {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
         margin-bottom: 20px;
       }
 
       .button {
-        padding: 12px 24px;
-        font-size: 14px;
         width: 200px;
+        font-size: 14px;
         text-align: center;
       }
 
@@ -194,15 +308,14 @@
       .map-frame {
         max-width: 90%;
         height: 350px;
-        margin: 0 auto;
       }
 
       .socials {
-        margin-bottom: 20px;
-        gap: 20px;
+        margin-bottom: 25px;
+        gap: 25px;
       }
     }
-  </style>  
+  </style>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -210,17 +323,17 @@
   <div class="floating-group" id="floatingGroup">
     <img src="logo.png" alt="GlowRated Logo" class="logo-img fade-in" />
     <div class="blurb fade-in fade-in-delay-1">
-      We're building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
+      We’re building a better way to book vetted beauty & wellness providers near you. Be the first to know when we launch — and help shape the future of glowing.
     </div>
     <div class="buttons fade-in fade-in-delay-2">
       <a href="https://forms.gle/MVV5VaTHkB1DyKiN7" target="_blank" class="button">Join Waitlist</a>
       <a href="https://forms.gle/m2ZtuSTHMPMrHci1A" target="_blank" class="button">Share a Fave</a>
     </div>
     <div class="socials fade-in fade-in-delay-3">
-      <a href="https://www.instagram.com/glowrated?igsh=a3l3djV0eTQ2d3g0&utm_source=qr" target="_blank">
+      <a href="https://www.instagram.com/glowrated" target="_blank">
         <img src="instagram.png" alt="Instagram"/>
       </a>
-      <a href="https://www.tiktok.com/@glowratedapp?_t=ZT-8wh7LR86vJ0&_r=1" target="_blank">
+      <a href="https://www.tiktok.com/@glowratedapp" target="_blank">
         <img src="tiktok.png" alt="TikTok"/>
       </a>
       <a href="mailto:danielaahernani@gmail.com">
